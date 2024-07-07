@@ -1,0 +1,53 @@
+{
+    "name": "Python Development Container",
+    "dockerFile": "../Dockerfile",
+    "context": "..",
+    "build": {
+        "args": {
+            "PYTHON_ENV": "development"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": "explicit"
+                },
+                "flake8.args": [
+                    "--max-line-length",
+                    "92"
+                ],
+                "[python]": {
+                    "editor.rulers": [
+                        92
+                    ]
+                },
+                "python.formatting.blackArgs": [
+                    "--line-length",
+                    "92"
+                ]
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-python.flake8",
+                "eamodio.gitlens",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "forwardPorts": [
+        8000
+    ],
+    "remoteUser": "root",
+    "postCreateCommand": "pip install flake8 black isort && git config --global user.email 'tquadfasel@ailio.de' && git config --global user.name 'Tobias Quadfasel'"
+}
