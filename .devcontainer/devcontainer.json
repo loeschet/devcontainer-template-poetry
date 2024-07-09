@@ -1,7 +1,6 @@
 {
     "name": "Python Development Container",
-    "dockerFile": "../Dockerfile",
-    "context": "..",
+    "dockerFile": "Dockerfile",
     "build": {
         "args": {
             "PYTHON_ENV": "development"

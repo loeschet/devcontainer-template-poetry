@@ -27,21 +27,21 @@ ENV PATH="$PATH:/root/.local/bin"
 RUN pipx install poetry
 
 # Copy pyproject.toml and poetry.lock if they exist
-COPY pyproject.toml* pyproject.toml*
-COPY poetry.lock* poetry.lock*
+#COPY pyproject.toml* pyproject.toml*
+#COPY poetry.lock* poetry.lock*
 
 # Set up the project
-RUN if [ "$PYTHON_ENV" = "production" ]; then \
-    echo "Existing project found. Installing dependencies..."; \
-    poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --no-root; \
-    fi
+#RUN if [ "$PYTHON_ENV" = "production" ]; then \
+#    echo "Existing project found. Installing dependencies..."; \
+#    poetry config virtualenvs.create false \
+#    && poetry install --no-interaction --no-ansi --no-root; \
+#    fi
 
 # Copy the rest of the application's code
-COPY . .
+#COPY . .
 
 # Run app in production (needs to be changed for specific use-case)
-CMD if [ "$PYTHON_ENV" = "production" ]; then \
-    echo "Running in production mode" && \
-    python main.py; \
-    fi
+#CMD if [ "$PYTHON_ENV" = "production" ]; then \
+#    echo "Running in production mode" && \
+#    python main.py; \
+#    fi
