@@ -27,6 +27,13 @@ ENV PATH="$PATH:/root/.local/bin"
 # Install Poetry using pipx
 RUN pipx install poetry
 
+# If needed: generate locale for de_DE.UTF-8
+#RUN sed -i '/de_DE.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
+# Set locale env vars (should be probably done via environment settings rather than in this Dockerfile)
+#ENV LANG de_DE.UTF-8
+#ENV LANGUAGE de_DE:de
+#ENV LC_ALL de_DE.UTF-8
+
 # Copy pyproject.toml and poetry.lock if they exist
 #COPY pyproject.toml* pyproject.toml*
 #COPY poetry.lock* poetry.lock*
