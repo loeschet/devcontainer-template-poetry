@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     git \
     openssh-client \
+    locales \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pipx
